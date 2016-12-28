@@ -9,8 +9,6 @@
 import UIKit
 
 class NewTaskViewController: UIViewController {
-
-    var newTaskSender = ViewController()
     
     @IBOutlet weak var newTaskTextField: UITextField!
     @IBOutlet weak var importantTaskSwitch: UISwitch!
@@ -22,12 +20,17 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func addTaskButton(_ sender: Any) {
-        let task = TaskObject()
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext /*This is accesing the "context" feature in the AppDelegate file that was created by Apple in order to connect Core Data in our App*/
+        
+        
+        let task = Task(context: context)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext() //saving the "context" in core data
+        
         task.taskName = newTaskTextField.text!
         task.important = importantTaskSwitch.isOn
         
-        newTaskSender.tasks.append(task)
-        newTaskSender.tasksViewController.reloadData()
+        // Pop Back to the main View Controller
         navigationController!.popViewController(animated: true)
     }
     

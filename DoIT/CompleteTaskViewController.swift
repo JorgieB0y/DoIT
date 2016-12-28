@@ -10,28 +10,28 @@ import UIKit
 
 class CompleteTaskViewController: UIViewController {
     
-    var taskView = TaskObject()
-    var newTaskSender = ViewController()
+    var taskView: Task? = nil
 
     @IBOutlet weak var taskNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if taskView.important {
-            taskNameLabel.text = "‼️\(taskView.taskName)"
+        if taskView!.important {
+            taskNameLabel.text = "‼️\(taskView!.taskName!)"
         } else {
-            taskNameLabel.text = taskView.taskName
+            taskNameLabel.text = taskView!.taskName
         }
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func markAsComplete(_ sender: Any) {
-        newTaskSender.tasks.remove(at: newTaskSender.selectedTaskID)
-        newTaskSender.tasksViewController.reloadData()
-        navigationController!.popViewController(animated: true)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(taskView!)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        navigationController!.popViewController(animated: true)
     }
 
 
