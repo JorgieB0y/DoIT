@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,16 +46,61 @@
                     <connections>
                         <outlet property="tasksViewController" destination="OzW-QP-7OC" id="zzr-zR-teI"/>
                         <segue destination="GNp-Ob-Xsl" kind="show" identifier="addTaskSegue" id="x71-K3-Tcw"/>
+                        <segue destination="BJA-kZ-Jwt" kind="show" identifier="selectTaskSegue" id="Atm-8c-ADA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Complete Task View Controller-->
+        <scene sceneID="Wne-bg-bbk">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BJA-kZ-Jwt" customClass="CompleteTaskViewController" customModule="DoIT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DXG-Ex-Mlg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Txf-3U-c4I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lgg-vN-HXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Task Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHr-80-ROq">
+                                <rect key="frame" x="16" y="84" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ0-iy-Jy2">
+                                <rect key="frame" x="123" y="160" width="129" height="30"/>
+                                <state key="normal" title="Mark as Complete!"/>
+                                <connections>
+                                    <action selector="markAsComplete:" destination="BJA-kZ-Jwt" eventType="touchUpInside" id="R4k-2L-gqY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FJ0-iy-Jy2" firstAttribute="leading" secondItem="lgg-vN-HXZ" secondAttribute="leadingMargin" constant="107" id="EGx-3h-FUe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FJ0-iy-Jy2" secondAttribute="trailing" constant="107" id="HrS-at-Pkb"/>
+                            <constraint firstItem="FJ0-iy-Jy2" firstAttribute="top" secondItem="xHr-80-ROq" secondAttribute="bottom" constant="55" id="N4V-01-UKb"/>
+                            <constraint firstItem="xHr-80-ROq" firstAttribute="top" secondItem="DXG-Ex-Mlg" secondAttribute="bottom" constant="20" id="OiK-ky-YIi"/>
+                            <constraint firstItem="xHr-80-ROq" firstAttribute="centerX" secondItem="lgg-vN-HXZ" secondAttribute="centerX" id="PLw-wW-3xz"/>
+                            <constraint firstItem="FJ0-iy-Jy2" firstAttribute="centerY" secondItem="lgg-vN-HXZ" secondAttribute="centerY" constant="-158.5" id="eYz-GL-7dx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="taskNameLabel" destination="xHr-80-ROq" id="F5J-UZ-NBw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnP-du-cfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="845.1274362818591"/>
+        </scene>
+        <!--New Task View Controller-->
         <scene sceneID="laj-EU-M54">
             <objects>
-                <viewController id="GNp-Ob-Xsl" sceneMemberID="viewController">
+                <viewController id="GNp-Ob-Xsl" customClass="NewTaskViewController" customModule="DoIT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5mX-bi-Wap"/>
                         <viewControllerLayoutGuide type="bottom" id="fUs-Af-QIU"/>
@@ -88,8 +134,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3F-9M-ijp">
-                                <rect key="frame" x="155" y="333" width="65" height="30"/>
+                                <rect key="frame" x="155" y="334" width="65" height="30"/>
                                 <state key="normal" title="Add task!"/>
+                                <connections>
+                                    <action selector="addTaskButton:" destination="GNp-Ob-Xsl" eventType="touchUpInside" id="a0N-Gc-JNV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,15 +146,20 @@
                             <constraint firstItem="Tu3-O3-5Pe" firstAttribute="centerX" secondItem="ppE-EA-vXG" secondAttribute="centerX" id="3SC-Zx-G5I"/>
                             <constraint firstItem="db4-fX-HIq" firstAttribute="centerX" secondItem="ppE-EA-vXG" secondAttribute="centerX" id="GXv-S8-ozC"/>
                             <constraint firstItem="Tu3-O3-5Pe" firstAttribute="top" secondItem="RFC-g3-ytS" secondAttribute="bottom" constant="26" id="Ksj-XV-L1h"/>
+                            <constraint firstItem="q3F-9M-ijp" firstAttribute="centerY" secondItem="ppE-EA-vXG" secondAttribute="centerY" constant="15.5" id="MY7-c1-7O3"/>
                             <constraint firstItem="db4-fX-HIq" firstAttribute="top" secondItem="5mX-bi-Wap" secondAttribute="bottom" constant="40" id="X3r-YW-zrb"/>
                             <constraint firstItem="CUk-Se-Nqv" firstAttribute="centerX" secondItem="ppE-EA-vXG" secondAttribute="centerX" id="cgx-Ks-l9j"/>
-                            <constraint firstItem="q3F-9M-ijp" firstAttribute="top" secondItem="Tu3-O3-5Pe" secondAttribute="bottom" constant="51" id="ggy-dC-oni"/>
+                            <constraint firstItem="q3F-9M-ijp" firstAttribute="top" secondItem="Tu3-O3-5Pe" secondAttribute="bottom" constant="52" id="ggy-dC-oni"/>
                             <constraint firstItem="q3F-9M-ijp" firstAttribute="centerX" secondItem="ppE-EA-vXG" secondAttribute="centerX" id="lhT-HP-H1P"/>
                             <constraint firstItem="RFC-g3-ytS" firstAttribute="centerX" secondItem="ppE-EA-vXG" secondAttribute="centerX" constant="-0.5" id="nkA-pD-gPH"/>
                             <constraint firstItem="RFC-g3-ytS" firstAttribute="top" secondItem="CUk-Se-Nqv" secondAttribute="bottom" constant="33" id="vmw-EV-zSj"/>
                             <constraint firstItem="CUk-Se-Nqv" firstAttribute="top" secondItem="db4-fX-HIq" secondAttribute="bottom" constant="16" id="z4L-CB-65y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="importantTaskSwitch" destination="Tu3-O3-5Pe" id="NiG-1Y-Zhd"/>
+                        <outlet property="newTaskTextField" destination="CUk-Se-Nqv" id="lbq-hD-pcb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPD-Ua-4IK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tasksViewController: UITableView!
     
     var tasks: [TaskObject] = []
+    var selectedTaskID = 0
     
     
     override func viewDidLoad() {
@@ -56,8 +57,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return [task1, task2, task3]
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedTaskID = indexPath.row
+        let task = tasks[indexPath.row]
+            performSegue(withIdentifier: "selectTaskSegue", sender: task)
+    }
+    
     @IBAction func addTaskButton(_ sender: Any) {
         performSegue(withIdentifier: "addTaskSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "addTaskSegue" {
+        let newTask = segue.destination as!
+            NewTaskViewController
+        newTask.newTaskSender = self
+        }
+        
+        if segue.identifier == "selectTaskSegue" {
+            let nextVC = segue.destination as!
+            CompleteTaskViewController
+            nextVC.taskView = sender as! TaskObject
+            nextVC.newTaskSender = self
+        }
     }
     
 

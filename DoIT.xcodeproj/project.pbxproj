@@ -14,6 +14,8 @@
 		CF2C9DD01DE60197007C7EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF2C9DCF1DE60197007C7EE0 /* Assets.xcassets */; };
 		CF2C9DD31DE60197007C7EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF2C9DD11DE60197007C7EE0 /* LaunchScreen.storyboard */; };
 		CF2C9DDB1DE60805007C7EE0 /* Tasks File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C9DDA1DE60805007C7EE0 /* Tasks File.swift */; };
+		CF2C9DDD1DE61815007C7EE0 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C9DDC1DE61815007C7EE0 /* NewTaskViewController.swift */; };
+		CFF087391DE749B3003CDDB8 /* CompleteTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF087381DE749B3003CDDB8 /* CompleteTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		CF2C9DD21DE60197007C7EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF2C9DD41DE60197007C7EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF2C9DDA1DE60805007C7EE0 /* Tasks File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tasks File.swift"; sourceTree = "<group>"; };
+		CF2C9DDC1DE61815007C7EE0 /* NewTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		CFF087381DE749B3003CDDB8 /* CompleteTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				CF2C9DC51DE60197007C7EE0 /* AppDelegate.swift */,
-				CF2C9DC71DE60197007C7EE0 /* ViewController.swift */,
-				CF2C9DC91DE60197007C7EE0 /* Main.storyboard */,
 				CF2C9DDA1DE60805007C7EE0 /* Tasks File.swift */,
+				CF2C9DC71DE60197007C7EE0 /* ViewController.swift */,
+				CFF087381DE749B3003CDDB8 /* CompleteTaskViewController.swift */,
+				CF2C9DDC1DE61815007C7EE0 /* NewTaskViewController.swift */,
+				CF2C9DC91DE60197007C7EE0 /* Main.storyboard */,
 				CF2C9DCF1DE60197007C7EE0 /* Assets.xcassets */,
 				CF2C9DD11DE60197007C7EE0 /* LaunchScreen.storyboard */,
 				CF2C9DD41DE60197007C7EE0 /* Info.plist */,
@@ -97,7 +103,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Jorge Velasco Sanvodal";
 				TargetAttributes = {
 					CF2C9DC11DE60197007C7EE0 = {
@@ -143,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF2C9DC81DE60197007C7EE0 /* ViewController.swift in Sources */,
+				CF2C9DDD1DE61815007C7EE0 /* NewTaskViewController.swift in Sources */,
+				CFF087391DE749B3003CDDB8 /* CompleteTaskViewController.swift in Sources */,
 				CF2C9DDB1DE60805007C7EE0 /* Tasks File.swift in Sources */,
 				CF2C9DCE1DE60197007C7EE0 /* DoIT.xcdatamodeld in Sources */,
 				CF2C9DC61DE60197007C7EE0 /* AppDelegate.swift in Sources */,
@@ -189,6 +197,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -238,6 +247,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -305,6 +315,7 @@
 				CF2C9DD91DE60197007C7EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
